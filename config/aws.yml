@@ -1,0 +1,39 @@
+default: &default
+  emr_release: "emr-6.3.0"
+  ec2_key_name: "emr_deploy_ec2_key"
+
+production:
+  <<: *default
+  aws_profile: 'production_profile'
+  s3_bucket: 
+    analysis_bucket: 'production_analysis_bucket'
+    logs_bucket: 'production_logs_bucket'
+    temp_files_bucket: 'production_temp_files_bucket'
+  subnets:
+    - subnet_id_1
+    - subnet_id_2
+    - subnet_id_3
+
+staging:
+  <<: *default
+  aws_profile: 'staging_profile'
+  s3_bucket: 
+    analysis_bucket: 'staging_analysis_bucket'
+    logs_bucket: 'staging_logs_bucket'
+    temp_files_bucket: 'staging_temp_files_bucket'
+  subnets:
+    - subnet_id_1
+    - subnet_id_2
+    - subnet_id_3
+
+development:
+  <<: *default
+  aws_profile: 'dev_profile'
+  s3_bucket: 
+    analysis_bucket: 'dev_analysis_bucket'
+    logs_bucket: 'dev_logs_bucket'
+    temp_files_bucket: 'dev_temp_file_bucket'
+  subnets:
+    - subnet-3afa5e11
+    - subnet-42a5a919
+    - subnet-068b564e

@@ -1,0 +1,20 @@
+default: &default
+  app_name: app_name
+  company: company_name
+  
+production:
+  <<: *default
+  analysis_data: '/path/to/production/data/folder/'
+  result_data: '/path/to/production/data/folder/'
+
+staging:
+  <<: *default
+  analysis_data: '/path/to/staging/data/folder2/'
+  result_data: '/path/to/staging/data/folder/'
+
+
+development:
+  <<: *default
+  analysis_data: '/path/to/development/data/folder3/'
+  result_data: '/path/to/development/data/folder/'
+ 
